@@ -6,6 +6,7 @@ public class CharacterControllerDino : MonoBehaviour
 {
     // Start is called before the first frame update
     private float move;
+    [SerializeField] Rigidbody2D rb;
     [SerializeField] CharacterMovement characterMovement;
     [SerializeField] CharacterAtack characterAtack;
     void Start()
@@ -18,8 +19,10 @@ public class CharacterControllerDino : MonoBehaviour
     {
         characterMovement.Jump(move);
         characterMovement.Dash(move);
+        characterMovement.CheckLookAt();
         characterAtack.Sword();
         characterAtack.Shoot();
+        
         move = Input.GetAxis("Horizontal") * characterMovement.speed;
     }
 

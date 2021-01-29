@@ -137,7 +137,7 @@ GameObject:
   - component: {fileID: 82554827}
   m_Layer: 0
   m_Name: Ground (2)
-  m_TagString: Untagged
+  m_TagString: ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -266,7 +266,9 @@ GameObject:
   - component: {fileID: 88026922}
   - component: {fileID: 88026925}
   - component: {fileID: 88026926}
+  - component: {fileID: 88026927}
   - component: {fileID: 88026924}
+  - component: {fileID: 88026928}
   m_Layer: 0
   m_Name: Dino
   m_TagString: Untagged
@@ -349,16 +351,18 @@ MonoBehaviour:
   m_GameObject: {fileID: 88026921}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e6e68cc70d62e3d46a67dc5dabf340e1, type: 3}
+  m_Script: {fileID: 11500000, guid: ffd85154392ec914f83d626d655a5135, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 1
-  rb: {fileID: 88026925}
+  groundTag: ground
   jumpForce: 700
-  dashForce: 1000
-  charged_shoot_time_minimum: 3
+  dashForce: 700
+  rb: {fileID: 88026925}
   isGrounded: 0
   m_MovementSmoothing: 0.05
+  right: 0
+  left: 0
 --- !u!50 &88026925
 Rigidbody2D:
   serializedVersion: 4
@@ -406,6 +410,34 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &88026927
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 88026921}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cd139e8c33693a24983d3f2b20975aef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rb: {fileID: 0}
+  characterMovement: {fileID: 88026924}
+  characterAtack: {fileID: 88026928}
+--- !u!114 &88026928
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 88026921}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 27b26f4efc662204ca1e1428be71759b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  charged_shoot_time_minimum: 3
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -503,7 +535,7 @@ GameObject:
   - component: {fileID: 533501796}
   m_Layer: 0
   m_Name: Ground (1)
-  m_TagString: Untagged
+  m_TagString: ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -634,7 +666,7 @@ GameObject:
   - component: {fileID: 1785696659}
   m_Layer: 0
   m_Name: Ground (3)
-  m_TagString: Untagged
+  m_TagString: ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -765,7 +797,7 @@ GameObject:
   - component: {fileID: 2033882854}
   m_Layer: 0
   m_Name: Ground
-  m_TagString: Untagged
+  m_TagString: ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
