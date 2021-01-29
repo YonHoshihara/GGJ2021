@@ -18,17 +18,6 @@ public class CharacterControllerDino : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
-        if(Input.GetKeyDown(KeyCode.G))
-        {
-            lifeController.Getdamage();
-        }
-
-        if (Input.GetKeyDown(KeyCode.H))
-        {
-            lifeController.RegenLife();
-        }
-
         characterMovement.Jump(move);
         characterMovement.Dash(move);
         characterMovement.CheckLookAt();
