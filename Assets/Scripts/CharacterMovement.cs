@@ -2,23 +2,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class moviment : MonoBehaviour
+public class CharacterMovement : MonoBehaviour
 {
+    // Start is called before the first frame update
     public float speed;
-    public Rigidbody2D rb;
-    public float jumpForce;
-    public float dashForce;
-    private float movement;
+    [SerializeField] private float jumpForce;
+    [SerializeField] private float dashForce;
+    [SerializeField] Rigidbody2D rb;
     [SerializeField] bool isGrounded;
     [Range(0, .3f)] [SerializeField] private float m_MovementSmoothing = .05f;
     private Vector3 m_Velocity = Vector3.zero;
 
-    void Update() {
-        Jump();
-        Dash();
-        movement = Input.GetAxis("Horizontal") * speed;
-    }
-    private void Jump()
+    public void Jump(float movement)
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
@@ -27,19 +22,16 @@ public class moviment : MonoBehaviour
         }
     }
 
-    private void Dash()
+    public void Dash(float movement)
     {
-        
+
         if (Input.GetKeyDown(KeyCode.Q))
         {
             Debug.Log("Dash");
             move(movement, false, true);
         }
     }
-    private void FixedUpdate()
-    {
-        move(movement, false, false);
-    }
+
     public void move(float move, bool jump, bool dash)
     {
         Vector3 targetVelocity = new Vector2(move * 10f, rb.velocity.y);
@@ -70,4 +62,3 @@ public class moviment : MonoBehaviour
         }
     }
 }
-    
