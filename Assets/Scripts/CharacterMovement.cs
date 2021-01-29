@@ -72,12 +72,6 @@ public class CharacterMovement : MonoBehaviour
     public void CheckLookAt()
     {
 
-        if (rb.velocity.x == 0)
-        {
-            right = true;
-            left = false;
-        }
-
         if (rb.velocity.x > 0)
         {
             right = true;
