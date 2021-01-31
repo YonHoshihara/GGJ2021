@@ -121,12 +121,12 @@ TextureImporter:
       name: Iddle_0
       rect:
         serializedVersion: 2
-        x: 0
+        x: 12
         y: 0
-        width: 64
+        width: 44
         height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.73926234, y: 0.5179445}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -142,12 +142,12 @@ TextureImporter:
       name: Iddle_1
       rect:
         serializedVersion: 2
-        x: 64
+        x: 71
         y: 0
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 52
+        height: 63
+      alignment: 9
+      pivot: {x: 0.75699776, y: 0.5179445}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -163,12 +163,12 @@ TextureImporter:
       name: Iddle_2
       rect:
         serializedVersion: 2
-        x: 128
+        x: 142
         y: 0
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 47
+        height: 62
+      alignment: 9
+      pivot: {x: 0.7389841, y: 0.5179445}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -184,12 +184,12 @@ TextureImporter:
       name: Iddle_3
       rect:
         serializedVersion: 2
-        x: 192
+        x: 198
         y: 0
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 56
+        height: 62
+      alignment: 9
+      pivot: {x: 0.7896004, y: 0.5179445}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -205,12 +205,12 @@ TextureImporter:
       name: Iddle_4
       rect:
         serializedVersion: 2
-        x: 256
+        x: 269
         y: 0
-        width: 64
+        width: 51
         height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.7799497, y: 0.5179445}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []

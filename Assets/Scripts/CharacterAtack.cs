@@ -11,6 +11,8 @@ public class CharacterAtack : MonoBehaviour
     public float bullet_normal_velocity;
     public float bullet_charged_velocity;
     public CharacterMovement characterMove;
+    public CharacterAnimationController animController;
+    private bool canIShoot = true;
     public void Sword()
     {
         if (Input.GetKeyDown(KeyCode.W))
@@ -18,58 +20,72 @@ public class CharacterAtack : MonoBehaviour
             Debug.Log("Sword");
         }
     }
-
     public void Shoot()
     {
 
-
         if (Input.GetKey(KeyCode.E))
         {
+            if (canIShoot)
+            {
+                animController.SetStartShootTriger();
+                canIShoot = false;
+            }
+           
             timeCharge += Time.deltaTime;
         }
 
         if (Input.GetKeyUp(KeyCode.E))
         {
-            ChargedShoot();
+            StartCoroutine(ChargedShoot());
         }
     }
-
-    private void ChargedShoot()
+    public IEnumerator ChargedShoot()
     {
         if (timeCharge >= charged_shoot_time_minimum)
         {
-            Debug.Log("ChargedShoot");
-            
-            if (characterMove.right)
+            if ((characterMove.right)||(!characterMove.right && !characterMove.left))
             {
+
+                yield return new WaitForSeconds(.5f);
+                animController.SetEndtShootTriger();
                 InsantiateBullet(bullet_charged_velocity, chargedBullet);
+                canIShoot = true;
+                timeCharge = 0;
+
             }
 
             if (characterMove.left)
             {
+                yield return new WaitForSeconds(.5f);
+                animController.SetEndtShootTriger();
                 InsantiateBullet(-1 * bullet_charged_velocity, chargedBullet);
+                canIShoot = true;
+                timeCharge = 0;
             }
-
-            timeCharge = 0;
         }
         else
         {
             Debug.Log("Normal Shoot");
             
-            if(characterMove.right)
+            if(characterMove.right || (!characterMove.right && !characterMove.left))
             {
+                yield return new WaitForSeconds(.5f);
+                animController.SetEndtShootTriger();
                 InsantiateBullet(bullet_normal_velocity, bullet);
+                canIShoot = true;
+                timeCharge = 0;
             }
 
             if (characterMove.left)
             {
+                yield return new WaitForSeconds(.5f);
+                animController.SetEndtShootTriger();
                 InsantiateBullet(-1 * bullet_normal_velocity, bullet);
+                canIShoot = true;
+                timeCharge = 0;
             }
-           
-            timeCharge = 0;
         }
     }
-
     private void InsantiateBullet(float velocity, GameObject bullet)
     {
         GameObject bl = Instantiate(bullet, transform.position, Quaternion.identity);

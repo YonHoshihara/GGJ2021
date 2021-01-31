@@ -11,6 +11,7 @@ public class CharacterMovement : MonoBehaviour
     [SerializeField] private float dashForce;
     [SerializeField] Rigidbody2D rb;
     [SerializeField] bool isGrounded;
+    [SerializeField] private CharacterAnimationController animationController;
     [Range(0, .3f)] [SerializeField] private float m_MovementSmoothing = .05f;
     private Vector3 m_Velocity = Vector3.zero;
     public bool right;
@@ -32,9 +33,10 @@ public class CharacterMovement : MonoBehaviour
     public void Dash(float movement)
     {
 
-        if (Input.GetKeyDown(KeyCode.Q))
+        if (Input.GetKeyDown(KeyCode.Q) && Mathf.Abs(rb.velocity.x)> 0 )
         {
             Debug.Log("Dash");
+            
             move(movement, false, true);
         }
     }
@@ -53,6 +55,8 @@ public class CharacterMovement : MonoBehaviour
         if (dash)
         {
 
+
+            animationController.SetDashtrigger();
             if (rb.velocity.x == 0)
             {
                 rb.AddForce(new Vector2(dashForce, 0f));
@@ -66,6 +70,8 @@ public class CharacterMovement : MonoBehaviour
             {
                 rb.AddForce(new Vector2(-dashForce, 0));
             }
+
+            animationController.SetEndDashtrigger();
         }
     }
 
