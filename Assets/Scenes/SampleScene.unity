@@ -210,6 +210,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   anim: {fileID: 88026931}
   rb: {fileID: 88026926}
+  characterMovement: {fileID: 88026924}
 --- !u!1 &278554924
 GameObject:
   m_ObjectHideFlags: 0

@@ -6,15 +6,16 @@ public class CharacterAnimationController : MonoBehaviour
 {
     [SerializeField] private Animator anim;
     [SerializeField]private Rigidbody2D rb;
+    [SerializeField] private CharacterMovement characterMovement;
     void Start()
     {
-
+        
     }
     void Update()
     {
+
         anim.SetFloat("velocity", Mathf.Abs(rb.velocity.x));
     }
-   
     public void SetStartShootTriger()
     {
         anim.SetTrigger("startShoot");
@@ -23,14 +24,21 @@ public class CharacterAnimationController : MonoBehaviour
     {
         anim.SetTrigger("endShoot");
     }
-
     public void SetDashtrigger()
     {
         anim.SetTrigger("dash");
     }
-
     public void SetEndDashtrigger()
     {
         anim.SetTrigger("endDash");
     }
+    public void SettriggerJump()
+    {
+        anim.SetTrigger("jump");
+    }
+    public void SetGroundedTrigger()
+    {
+        anim.SetTrigger("grounded");
+    }
+
 }

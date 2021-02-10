@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class CharacterAtack : MonoBehaviour
 {
-    private float timeCharge;
+    public float timeCharge;
     [SerializeField]private float charged_shoot_time_minimum;
     public GameObject bullet;
     public GameObject chargedBullet;
@@ -32,6 +32,7 @@ public class CharacterAtack : MonoBehaviour
             }
            
             timeCharge += Time.deltaTime;
+            Debug.Log(timeCharge);
         }
 
         if (Input.GetKeyUp(KeyCode.E))
@@ -45,33 +46,27 @@ public class CharacterAtack : MonoBehaviour
         {
             if ((characterMove.right)||(!characterMove.right && !characterMove.left))
             {
-
                 yield return new WaitForSeconds(.5f);
                 animController.SetEndtShootTriger();
-                InsantiateBullet(bullet_charged_velocity, chargedBullet);
                 canIShoot = true;
                 timeCharge = 0;
-
             }
 
             if (characterMove.left)
             {
                 yield return new WaitForSeconds(.5f);
                 animController.SetEndtShootTriger();
-                InsantiateBullet(-1 * bullet_charged_velocity, chargedBullet);
                 canIShoot = true;
                 timeCharge = 0;
             }
         }
         else
         {
-            Debug.Log("Normal Shoot");
-            
+          
             if(characterMove.right || (!characterMove.right && !characterMove.left))
             {
                 yield return new WaitForSeconds(.5f);
                 animController.SetEndtShootTriger();
-                InsantiateBullet(bullet_normal_velocity, bullet);
                 canIShoot = true;
                 timeCharge = 0;
             }
@@ -80,9 +75,39 @@ public class CharacterAtack : MonoBehaviour
             {
                 yield return new WaitForSeconds(.5f);
                 animController.SetEndtShootTriger();
-                InsantiateBullet(-1 * bullet_normal_velocity, bullet);
                 canIShoot = true;
                 timeCharge = 0;
+            }
+        }
+    }
+    public void InstantiateBulletEvent()
+    {
+
+        if (timeCharge >= charged_shoot_time_minimum)
+        {
+           
+            if ((characterMove.right) || (!characterMove.right && !characterMove.left))
+            {
+                InsantiateBullet(bullet_charged_velocity, chargedBullet);
+            }
+
+            if (characterMove.left)
+            {
+                InsantiateBullet(-1 * bullet_charged_velocity, chargedBullet);
+            }
+        }
+        else
+        {
+            Debug.Log("Normal Shoot");
+          
+            if (characterMove.right || (!characterMove.right && !characterMove.left))
+            {
+                InsantiateBullet(bullet_normal_velocity, bullet);
+            }
+
+            if (characterMove.left)
+            {
+                InsantiateBullet(-1 * bullet_normal_velocity, bullet);
             }
         }
     }
