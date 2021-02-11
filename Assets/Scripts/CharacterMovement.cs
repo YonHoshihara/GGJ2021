@@ -17,19 +17,6 @@ public class CharacterMovement : MonoBehaviour
     private float movement_event;
     public bool right;
     public bool left;
-
-    private void Start()
-    {
-      
-    }
-
-    private void Update()
-    {
-        if (isGrounded)
-        {
-            animationController.SetGroundedTrigger();
-        }
-    }
     public void Jump(float movement)
     {
         if (Input.GetKeyDown(KeyCode.Space))
@@ -38,7 +25,6 @@ public class CharacterMovement : MonoBehaviour
             move(movement, true, false);
         }
     }
-
     public void DashEvent()
     {
         move(movement_event, false, true);

@@ -13,8 +13,16 @@ public class CharacterAnimationController : MonoBehaviour
     }
     void Update()
     {
-
         anim.SetFloat("velocity", Mathf.Abs(rb.velocity.x));
+        anim.SetFloat("fallvelocity", rb.velocity.y);
+        if (characterMovement.isGrounded)
+        {
+            anim.SetBool("grounded",true);
+        }
+        else
+        {
+            anim.SetBool("grounded", false);
+        }
     }
     public void SetStartShootTriger()
     {
@@ -35,10 +43,6 @@ public class CharacterAnimationController : MonoBehaviour
     public void SettriggerJump()
     {
         anim.SetTrigger("jump");
-    }
-    public void SetGroundedTrigger()
-    {
-        anim.SetTrigger("grounded");
     }
 
 }
