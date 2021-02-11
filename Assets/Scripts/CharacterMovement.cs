@@ -66,8 +66,6 @@ public class CharacterMovement : MonoBehaviour
 
         if (dash)
         {
-
-            //animationController.SetDashtrigger();
             if (rb.velocity.x == 0)
             {
                 rb.AddForce(new Vector2(dashForce, 0f));

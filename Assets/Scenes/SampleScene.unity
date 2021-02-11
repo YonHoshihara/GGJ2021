@@ -1269,6 +1269,10 @@ PrefabInstance:
       propertyPath: bullet_charged_velocity
       value: 300
       objectReference: {fileID: 0}
+    - target: {fileID: 3838803891973348568, guid: ce417a4ef5a60344eb26cceb6caafa58, type: 3}
+      propertyPath: m_CollisionDetection
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3838803891973348569, guid: ce417a4ef5a60344eb26cceb6caafa58, type: 3}
       propertyPath: speed
       value: 0.5

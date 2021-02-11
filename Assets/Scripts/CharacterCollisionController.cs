@@ -6,18 +6,6 @@ public class CharacterCollisionController : MonoBehaviour
 {
     public string enemyTag, powerUpTag;
     public CharacterLifeController lifeController;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     public IEnumerator  OnTriggerEnter2D(Collider2D collision)
     {
         yield return new WaitForSeconds(.2f);
